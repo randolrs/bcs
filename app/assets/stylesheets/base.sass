@@ -1,12 +1,20 @@
 
-$application-background-color: #eee
+$application-background-color: #f9f9f9
+$font-stack: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, "Liberation Sans", FreeSans, sans-serif
 
-html, body
-  min-height: 100%
+html
+  html, body
+    min-height: 100%
+    font-family: $font-stack !important
+  html, body, h1, h2, h3, h4, h5, h6, ul, li, a
+    margin: 0px
+    padding: 0px
+  body
+    background-color: $application-background-color
 
-html, body, h1, h2, h3, h4, h5, h6, ul, li, a
-  margin: 0px
-  padding: 0px
-
-body
-  background-color: $application-background-color
+ul.horizontal-list
+  list-style: none
+  li
+    display: inline-block
+    a
+      display: block
