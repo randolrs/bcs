@@ -14,8 +14,11 @@ $navigation-link-padding: 10px
   height: $navigation-height
   box-shadow: $navigation-box-shadow
   border-bottom: $navigation-border-bottom
-  &__left
-    left: 0px
+  &__left, &__right
+    display: inline-block
+  &__right
+    position: absolute
+    right: 0px
   &__link
     display: inline-block
     line-height: ($navigation-height - $navigation-link-padding * 2)
