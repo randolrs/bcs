@@ -5,7 +5,11 @@ Rails.application.routes.draw do
 
   get 'pages/home'
 
-  get '/settings', to: 'accounts#settings', as: 'account_settings'
+  get '/settings/account', to: 'accounts#settings', as: 'account_settings'
+
+  get '/settings/my-profile', to: 'accounts#edit_my_profile', as: 'edit_my_profile'
+
+  get '/settings/payments', to: 'accounts#payments', as: 'edit_payment_methods'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

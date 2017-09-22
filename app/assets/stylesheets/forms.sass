@@ -1,0 +1,25 @@
+$input-focus-border-color: blue
+
+.form-container
+  .field
+    margin-bottom: 15px
+    display: block
+    label
+      margin-bottom: 10px
+    input
+      padding: 10px 5px
+      border-radius: 5px
+      border: 1px solid rgba(0,0,0,0.2)
+      width: 300px
+      max-width: 100%
+      &:focus
+        outline: none
+        border: 1px solid $input-focus-border-color
+  .actions
+    input[type="submit"]
+      padding: 10px 20px
+      background: #666
+      color: #fff
+      border: 1px solid rgba(0,0,0,0.1)
+      border-radius: 3px
+      font-weight: 600
