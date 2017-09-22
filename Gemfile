@@ -47,6 +47,12 @@ gem 'devise'
 #bootstrap css/js
 gem 'bootstrap-sass'
 
+#stripe for payments
+gem 'stripe'
+
+#figaro for secrets
+gem "figaro"
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

@@ -1,0 +1,28 @@
+
+
+<div class="content with-gutter">
+
+  <div class="content__page-header">
+    <h1>Checkout</h1>
+  </div>
+
+  <div class="card align-center">
+
+    <div class="card__header">
+      <p>Enter Your Credit Card Information</p>
+    </div>
+
+    <div class="card__body">
+
+      <%= form_tag complete_checkout_path do %>
+
+        <%= render 'forms/credit_card_form' %>
+        <input type="submit" class="button wide" value="Finish Checkout"></input>
+
+      <% end %>
+      
+    </div>
+  </div>
+
+
+</div>

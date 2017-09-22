@@ -5,9 +5,9 @@ class ApplicationController < ActionController::Base
 	def after_sign_in_path_for(user)
 
 		unless current_user.id
-			root_path
+			choose_membership_path
 		else
-			root_path
+			choose_membership_path
 		end
 
 	end

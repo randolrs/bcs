@@ -2,19 +2,26 @@ $input-focus-border-color: blue
 
 .form-container
   .field
-    margin-bottom: 15px
+    margin-bottom: 25px
     display: block
     label
       margin-bottom: 10px
+      font-size: 16px
     input
       padding: 10px 5px
       border-radius: 5px
       border: 1px solid rgba(0,0,0,0.2)
-      width: 300px
+      width: 500px
       max-width: 100%
+      line-height: 20px
       &:focus
         outline: none
         border: 1px solid $input-focus-border-color
+    select
+      height: 40px
+      border: 1px solid rgba(0,0,0,0.2)
+      padding: 10px
+      border-radius: 3px
   .actions
     input[type="submit"]
       padding: 10px 20px
@@ -23,3 +30,5 @@ $input-focus-border-color: blue
       border: 1px solid rgba(0,0,0,0.1)
       border-radius: 3px
       font-weight: 600
+      width: 500px
+      max-width: 100%
