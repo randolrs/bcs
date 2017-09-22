@@ -1,0 +1,22 @@
+
+$content-width: 1200px
+$content-padding: 20px
+$content-section-padding: 10px
+$content-section-header-border-bottom: 1px solid rgba(0,0,0,0.1)
+
+.content
+  max-width: $content-width
+  margin: 0 auto
+  display: block
+  &.with-gutter
+    padding: $content-padding
+  &__section
+    padding: $content-section-padding
+    &__header
+      border-bottom: $content-section-header-border-bottom
+      padding: 10px 0px
+      margin-bottom: 25px
+      &__text
+        font-size: 20px
+        font-weight: 500
+    &__main
