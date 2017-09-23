@@ -1,0 +1,41 @@
+<div class="content with-gutter">
+
+  <div class="card align-center">
+
+    <div class="card__header">
+      <p>Enter Your Login Credentials</p>
+    </div>
+
+    <div class="card__body">
+
+      <div class="form-container">
+
+        <%= form_for(:user, :url => registration_path(:user)) do |f| %>
+
+          <div class="field">
+            <label>Email</label>
+            <br>
+            <%= f.email_field :email, autofocus: true, placeholder: "Email", :required => true %>
+          </div>
+
+          <div class="field">
+
+            <label>Password</label>
+            <br>
+
+            <%= f.password_field :password, autocomplete: "off", placeholder: "Password", :required => true %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit "Login", class: "button medium orange-background" %>
+          </div>
+
+        <% end %>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

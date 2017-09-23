@@ -29,6 +29,8 @@ class MembershipsController < ApplicationController
       :source => token.id
     )
 
+    current_user.update(:stripe_customer_id => customer.id)
+
     Stripe::Subscription.create(
       :customer => customer.id,
       :items => [

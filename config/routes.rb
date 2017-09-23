@@ -5,6 +5,9 @@ Rails.application.routes.draw do
 
   get 'pages/home'
 
+  get '/login', to: 'users#login', as: 'login'
+  get '/signup', to: 'users#signup', as: 'signup'
+
   get '/settings/account', to: 'accounts#settings', as: 'account_settings'
 
   get '/settings/my-profile', to: 'accounts#edit_my_profile', as: 'edit_my_profile'
