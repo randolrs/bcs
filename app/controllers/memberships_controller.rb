@@ -8,8 +8,6 @@ class MembershipsController < ApplicationController
 
   def complete_checkout
 
-    Stripe.api_key = ENV['STRIPE_SECRET_KEY']
-
     number = params[:cardNumber]
     exp_month = params[:expMonth]
     exp_year = params[:expYear]

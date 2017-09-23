@@ -7,8 +7,7 @@
     <%= form_for(current_user, url: registration_path(current_user), html: { method: :put, class:"" }) do |f| %>
 
       <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true %>
+        <%= @stripe_cards %>
       </div>
 
       <div class="field">
@@ -19,7 +18,7 @@
       <div class="actions">
         <%= f.submit "Update" %>
       </div>
-      
+
     <% end %>
 
   </div>

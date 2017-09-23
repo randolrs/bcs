@@ -5,6 +5,9 @@ class AccountsController < ApplicationController
   def edit_my_profile
   end
 
-  def edit_payments
+  def payments
+
+    @stripe_cards = current_user.stripe_cards
+
   end
 end
