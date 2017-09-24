@@ -7,8 +7,24 @@
     <%= form_for(current_user, url: registration_path(current_user), html: { method: :put, class:"" }) do |f| %>
 
       <div class="field">
-        <%= @stripe_cards %>
+        <label>Current Payment Method:</label><br/>
+
+        <% @stripe_cards %>
+
+        <select>
+
+          <% @stripe_cards.each do |stripe_card| %>
+
+            <option value="stripe_card.id" <% if @default_source == stripe_card.id %>selected<%end%>>
+              <%= stripe_card.brand + " ending in " + stripe_card.last4.to_s %>
+            </option>
+
+          <% end %>
+        </select>
+
       </div>
+
+      <a class="button">+ Add New Card</a>
 
       <div class="field">
         <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />

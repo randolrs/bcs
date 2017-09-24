@@ -8,6 +8,7 @@ class AccountsController < ApplicationController
   def payments
 
     @stripe_cards = current_user.stripe_cards
-
+    @default_source = current_user.default_stripe_card_id
+    
   end
 end
