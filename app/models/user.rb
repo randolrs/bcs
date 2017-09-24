@@ -33,16 +33,22 @@ class User < ApplicationRecord
   end
 
 
-  def default_stripe_card_id
+  def default_stripe_card_object
 
     stripe_customer_object = self.stripe_customer_object
 
     if stripe_customer_object
 
-      return stripe_customer_object.default_source
+      card = stripe_customer_object.sources.retrieve(stripe_customer_object.default_source)
+
+      if card
+        return card
+      else
+        return nil
+      end
 
     else
-      
+
         return nil
 
     end

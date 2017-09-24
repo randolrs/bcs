@@ -4,38 +4,30 @@
 
   <div class="form-container">
 
-    <%= form_for(current_user, url: registration_path(current_user), html: { method: :put, class:"" }) do |f| %>
+    <div class="field">
+      <label>Current Payment Method:</label><br/>
+      <p><%= @default_source.brand + " ending in " + @default_source.last4.to_s %></p>
+
+    </div>
+
+    <div class="slide-down-container" id="new-payment-method">
 
       <div class="field">
-        <label>Current Payment Method:</label><br/>
+        <label>Enter Your New Payment Information:</label><br/>
+        <div class="card card__body">
 
-        <% @stripe_cards %>
-
-        <select>
-
-          <% @stripe_cards.each do |stripe_card| %>
-
-            <option value="stripe_card.id" <% if @default_source == stripe_card.id %>selected<%end%>>
-              <%= stripe_card.brand + " ending in " + stripe_card.last4.to_s %>
-            </option>
-
+          <%= form_tag update_payment_information_path do %>
+            <%= render 'forms/credit_card_form' %>
+            <input type="submit" class="button wide" value="Update Payment Information"></input>
           <% end %>
-        </select>
+
+        </div>
 
       </div>
 
-      <a class="button">+ Add New Card</a>
+    </div>
 
-      <div class="field">
-        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-        <%= f.password_field :current_password, autocomplete: "off" %>
-      </div>
-
-      <div class="actions">
-        <%= f.submit "Update" %>
-      </div>
-
-    <% end %>
+    <a class="button click-to-slide-down hide-on-click" data-slide-down-id="new-payment-method">Change Payment Information</a>
 
   </div>
 

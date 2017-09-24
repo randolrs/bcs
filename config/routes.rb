@@ -21,5 +21,7 @@ Rails.application.routes.draw do
 
   post 'complete_checkout' => "memberships#complete_checkout"
 
+  post 'update_payment_information' => 'accounts#update_payment_information'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
