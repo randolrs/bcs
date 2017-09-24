@@ -1,18 +1,9 @@
-<div class="content with-gutter">
-  <h1>Welcome to my app!</h1>
-  <p>Sign up here.</p>
+<% if user_signed_in? %>
 
-  <section class="content__section">
+  <%= render 'users/dashboard' %>
 
-    <div class="content__section__header">
-      <header class="content__section__header__text">Title</header>
-    </div>
+<% else %>
 
-    <div class="content__section__main">
+  <%= render 'landing_pages/basic' %>
 
-      XXYYZZ
-    </div>
-
-  </section>
-
-</div>
+<% end %>

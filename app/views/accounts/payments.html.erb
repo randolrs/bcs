@@ -7,10 +7,11 @@
     <div class="field">
       <label>Current Payment Method:</label><br/>
       <p><%= @default_source.brand + " ending in " + @default_source.last4.to_s %></p>
+      <p><%= "Expiration: " + @default_source.exp_month.to_s + "/" + @default_source.exp_year.to_s %></p>
 
     </div>
 
-    <div class="slide-down-container" id="new-payment-method">
+    <div class="slide-down-container" id="new-payment-method" style="display: none;">
 
       <div class="field">
         <label>Enter Your New Payment Information:</label><br/>
