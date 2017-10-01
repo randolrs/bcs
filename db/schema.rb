@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170923165321) do
+ActiveRecord::Schema.define(version: 20171001152649) do
+
+  create_table "funding_application_questions", force: :cascade do |t|
+    t.string   "question_text"
+    t.string   "additional_text"
+    t.string   "answer_format"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "funding_application_id"
+  end
+
+  create_table "funding_applications", force: :cascade do |t|
+    t.string   "name"
+    t.string   "url_slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "installs", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -46,6 +62,11 @@ ActiveRecord::Schema.define(version: 20170923165321) do
     t.string   "first_name"
     t.string   "last_name"
     t.boolean  "payment_active"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.boolean  "is_admin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

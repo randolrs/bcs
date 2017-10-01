@@ -1,0 +1,30 @@
+<div class="content with-gutter">
+
+  <p id="notice"><%= notice %></p>
+
+  <h1>Funding Applications</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @funding_applications.each do |funding_application| %>
+        <tr>
+          <td><%= funding_application.name %></td>
+          <td><%= link_to 'Show', funding_application %></td>
+          <td><%= link_to 'Edit', edit_funding_application_path(funding_application) %></td>
+          <td><%= link_to 'Destroy', funding_application, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Funding Application', new_funding_application_path %>
+
+</div>

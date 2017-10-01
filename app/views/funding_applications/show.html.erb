@@ -1,0 +1,9 @@
+<div class="content with-gutter">
+  <p id="notice"><%= notice %></p>
+
+  <h3>Name:</h3>
+  <%= @funding_application.name %>
+  <br><br>
+  <%= link_to 'Edit', edit_funding_application_path(@funding_application) %> |
+  <%= link_to 'Back', funding_applications_path %>
+</div>

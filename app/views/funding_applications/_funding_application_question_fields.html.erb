@@ -1,0 +1,15 @@
+<fieldset>
+  <div class="field">
+    <%= f.label :question_text, "Question" %><br />
+    <%= f.text_field :question_text %>
+  </div>
+  <div class="field">
+    <%= f.label :answer_format, "Answer Format" %><br />
+    <%= f.select :answer_format, [ 'Text', 'Number', 'Boolean' ] %>
+  </div>
+  <div class="field">
+    <%= f.check_box :_destroy, class:'destroy-item' %>
+    <%= f.label :_destroy, "Remove Question" %>
+    <a class="remove_fields">Remove Field</a>
+  </div>
+</fieldset>

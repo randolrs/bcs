@@ -16,6 +16,12 @@
         <%= f.text_field :last_name %>
       </div>
 
+      <div class="field">
+        <label>Profile Image</label><br />
+        <%= image_tag current_user.image, class:'profile-image--small' %><br /><br />
+        <%= f.file_field :image %>
+      </div>
+
       <div class="actions">
         <%= f.submit "Update" %>
       </div>

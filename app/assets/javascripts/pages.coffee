@@ -12,4 +12,15 @@ ready = ->
     $(".hide-on-click").click (window.event), ->
       $(@).fadeOut()
 
+    $('form').on 'click', '.remove_fields', (event) ->
+      $(@).parent().find('input.destroy-item').prop('checked', true)
+      $(@).parent('fieldset').hide()
+      event.preventDefault()
+
+    $('form').on 'click', '.add_fields', (event) ->
+      time = new Date().getTime()
+      regexp = new RegExp($(this).data('id'), 'g')
+      $(@).before($(this).data('fields').replace(regexp, time))
+      event.preventDefault()
+
 $(document).on('turbolinks:load', ready)

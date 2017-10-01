@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :funding_applications
+
   devise_for :users, :controllers => { :registrations => "registrations" }
 
   root 'pages#home'
@@ -19,9 +21,14 @@ Rails.application.routes.draw do
 
   get '/memberships/checkout/:membership_id', to: 'memberships#checkout', as: 'checkout_membership'
 
+  get '/admin/dashboard/', to: 'admin#dashboard', as: 'admin_dashboard'
+
   post 'complete_checkout' => "memberships#complete_checkout"
 
   post 'update_payment_information' => 'accounts#update_payment_information'
+
+  #get '/funding_applications', to: 'funding_applications#index', as: 'funding_applications'
+  #get '/funding_applications/new', to: 'funding_applications#new', as: 'new_funding_application'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

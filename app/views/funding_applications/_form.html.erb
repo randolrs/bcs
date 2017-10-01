@@ -1,0 +1,36 @@
+<div class="form-container">
+
+  <%= form_for(funding_application) do |f| %>
+    <% if funding_application.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(funding_application.errors.count, "error") %> prohibited this funding_application from being saved:</h2>
+
+        <ul>
+        <% funding_application.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </div>
+
+    <h3>Questions</h3>
+
+    <%= f.fields_for :funding_application_questions do |builder| %>
+      <%= render 'funding_application_question_fields', f: builder %>
+    <% end %>
+
+    <%= link_to_add_fields "Add Question", f, :funding_application_questions %>
+
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+
+</div>
