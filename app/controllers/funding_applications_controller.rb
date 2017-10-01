@@ -69,6 +69,6 @@ class FundingApplicationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def funding_application_params
-      params.fetch(:funding_application, {}).permit(:name, :funding_application_questions_attributes => [:id, :question_text, :answer_format, :_destroy])
+      params.fetch(:funding_application, {}).permit(:name, :headline, :additional_information, :funding_application_questions_attributes => [:id, :question_text, :answer_format, :_destroy])
     end
 end

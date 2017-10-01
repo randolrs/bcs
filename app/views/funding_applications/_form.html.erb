@@ -19,6 +19,16 @@
       <%= f.text_field :name %>
     </div>
 
+    <div class="field">
+      <%= f.label :headline %><br>
+      <%= f.text_field :headline %>
+    </div>
+
+    <div class="field">
+      <%= f.label :additional_information %><br>
+      <%= f.text_field :additional_information %>
+    </div>
+
     <h3>Questions</h3>
 
     <%= f.fields_for :funding_application_questions do |builder| %>

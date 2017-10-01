@@ -1,0 +1,32 @@
+<div class="form-container">
+
+  <%= form_for(funding_application_submission) do |f| %>
+    <% if funding_application_submission.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(funding_application_submission.errors.count, "error") %> prohibited this funding_application_submission from being saved:</h2>
+
+        <ul>
+        <% funding_application_submission.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= @funding_application.name %>
+    <% @funding_application.funding_application_questions.each do |question| %>
+      <div class="field">
+        <label><%= question.question_text %></label><br/>
+        <input type="<%= question.answer_format %>"></input>
+
+      </div>
+
+
+    <% end %>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+
+</div>

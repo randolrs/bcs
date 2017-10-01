@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Funding Application Submissions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @funding_application_submissions.each do |funding_application_submission| %>
+      <tr>
+        <td><%= link_to 'Show', funding_application_submission %></td>
+        <td><%= link_to 'Edit', edit_funding_application_submission_path(funding_application_submission) %></td>
+        <td><%= link_to 'Destroy', funding_application_submission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Funding Application Submission', new_funding_application_submission_path %>

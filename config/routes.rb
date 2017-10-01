@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :funding_applications
+  resources :funding_application_submissions
 
   devise_for :users, :controllers => { :registrations => "registrations" }
 
@@ -20,6 +21,8 @@ Rails.application.routes.draw do
   get '/memberships/choose_level', to: 'memberships#choose', as: 'choose_membership'
 
   get '/memberships/checkout/:membership_id', to: 'memberships#checkout', as: 'checkout_membership'
+
+  get '/apply/:funding_application_id', to: 'funding_application_submissions#initiate', as: 'initiate_funding_application_submission'
 
   get '/admin/dashboard/', to: 'admin#dashboard', as: 'admin_dashboard'
 
