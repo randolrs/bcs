@@ -23,6 +23,37 @@ class FundingApplicationSubmissionsController < ApplicationController
 
   end
 
+  def approve_for_interview_and_return
+
+    if params[:funding_application_submission_id]
+
+      funding_app = FundingApplicationSubmission.find(params[:funding_application_submission_id])
+      funding_app.approve_for_interview
+      redirect_to funding_application_submissions_path
+    else
+
+      redirect_to root_path
+      
+    end
+
+
+  end
+
+  def reject_for_interview_and_return
+
+    if params[:funding_application_submission_id]
+
+      funding_app = FundingApplicationSubmission.find(params[:funding_application_submission_id])
+      funding_app.reject_for_interview
+      redirect_to funding_application_submissions_path
+
+    else
+
+      redirect_to root_path
+    end
+
+  end
+
   # GET /funding_application_submissions
   # GET /funding_application_submissions.json
   def index

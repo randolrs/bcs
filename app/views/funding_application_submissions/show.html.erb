@@ -21,7 +21,15 @@
       <div class="field">
 
         <label><%= answer.funding_application_question.question_text %></label><br/>
-        <p><%= answer.id %></p>
+        <p>
+          <% if answer.funding_application_question.answer_format == "text" %>
+            <%= answer.answer_text %>
+          <% elsif answer.funding_application_question.answer_format == "number" %>
+            <%= answer.answer_number %>
+          <% elsif answer.funding_application_question.answer_format == "boolean" %>
+            <%= answer.answer_boolean %>
+          <%end%>
+        </p>
 
       </div>
 
@@ -29,8 +37,8 @@
 
   </div>
 
-  <%= link_to "Approve for Interview", root_path, class:"button medium blue-background"%>
-  <%= link_to "Reject Application", root_path, class:"button medium red-background"%>
+  <%= link_to "Approve for Interview", approve_for_interview_and_return_path(@funding_application_submission.id), class:"button medium blue-background"%>
+  <%= link_to "Reject Application", reject_for_interview_and_return_path(@funding_application_submission.id), class:"button medium red-background"%>
   <%= link_to "Edit Application", edit_funding_application_submission_path(@funding_application_submission), class:"button medium grey-background"%>
 
 </div>

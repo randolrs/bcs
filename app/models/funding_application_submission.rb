@@ -4,4 +4,17 @@ class FundingApplicationSubmission < ApplicationRecord
 
   has_many :funding_application_submission_answers
   accepts_nested_attributes_for :funding_application_submission_answers, allow_destroy: true
+
+  def approve_for_interview
+
+    self.update(:approved_for_interview => true)
+
+  end
+
+  def reject_for_interview
+
+    self.update(:rejected_for_interview => true)
+
+  end
+
 end

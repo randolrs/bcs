@@ -1,9 +1,30 @@
 <div class="content with-gutter">
   <p id="notice"><%= notice %></p>
 
-  <h3>Name:</h3>
-  <%= @funding_application.name %>
-  <br><br>
+  <div class="content__section__header">
+    <h1>Funding Application</h1>
+  </div>
+
+  <div class="form-container">
+
+    <div class="field">
+      <label>Name: </label><br/>
+      <p><%= @funding_application.name %></p>
+    </div>
+
+    <% @funding_application.funding_application_questions.each do |question| %>
+
+      <div class="field">
+
+        <label><%= question.question_text %></label><br/>
+        <p>Format: <%= question.answer_format %></p>
+
+      </div>
+
+    <% end %>
+
+  </div>
+
   <%= link_to 'Edit', edit_funding_application_path(@funding_application) %> |
   <%= link_to 'Back', funding_applications_path %>
 </div>

@@ -4,9 +4,12 @@
 
   <h1>Funding Applications</h1>
 
-  <table>
+  <table class="white-table">
     <thead>
       <tr>
+        <th>Application Name</th>
+        <th># of Questions</th>
+        <th>Date Created</th>
         <th colspan="4"></th>
       </tr>
     </thead>
@@ -15,6 +18,8 @@
       <% @funding_applications.each do |funding_application| %>
         <tr>
           <td><%= funding_application.name %></td>
+          <td><%= funding_application.funding_application_questions.count %></td>
+          <td><%= funding_application.created_at.strftime("%m/%e/%Y") %></td>
           <td><%= link_to "Apply", initiate_funding_application_submission_path(funding_application.id) %></td>
           <td><%= link_to 'Show', funding_application %></td>
           <td><%= link_to 'Edit', edit_funding_application_path(funding_application) %></td>

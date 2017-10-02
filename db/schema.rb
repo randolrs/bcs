@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171002151209) do
+ActiveRecord::Schema.define(version: 20171002195745) do
 
   create_table "funding_application_questions", force: :cascade do |t|
     t.string   "question_text"
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 20171002151209) do
     t.integer  "user_id"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.boolean  "approved_for_interview"
+    t.boolean  "rejected_for_interview"
   end
 
   create_table "funding_applications", force: :cascade do |t|

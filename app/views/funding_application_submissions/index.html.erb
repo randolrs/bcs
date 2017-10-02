@@ -6,12 +6,13 @@
     <h1>Funding Application Submissions</h1>
   </div>
 
-  <table>
+  <table class="white-table">
     <thead>
       <tr>
         <th>Application Name</th>
         <th>Applicant Email</th>
         <th>Date of Submission</th>
+        <th>Approval Status</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -22,6 +23,15 @@
           <td><%= funding_application_submission.funding_application.name %></td>
           <td><%= funding_application_submission.user.email %></td>
           <td><%= funding_application_submission.created_at.strftime("%m/%e/%Y") %></td>
+          <td>
+            <% if funding_application_submission.approved_for_interview == true %>
+              <span style="color: green;">Approved</span>
+            <% elsif funding_application_submission.rejected_for_interview == true %>
+               <span style="color: red;">Rejected</span>
+            <% else %>
+              <span style="color: yellow;">Pending</span>
+            <% end %>
+          </td>
           <td><%= link_to 'Show', funding_application_submission %></td>
           <td><%= link_to 'Edit', edit_funding_application_submission_path(funding_application_submission) %></td>
           <td><%= link_to 'Destroy', funding_application_submission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
