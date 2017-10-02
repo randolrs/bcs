@@ -2,6 +2,8 @@
 
 <div class="content with-gutter">
 
+  <%= link_to 'Back to Submission Home', funding_application_submissions_path %>
+
   <div class="content__section__header">
     <h1><%= @funding_application_submission.funding_application.name %> Application</h1>
   </div>
@@ -27,7 +29,8 @@
 
   </div>
 
-  <%= link_to 'Edit', edit_funding_application_submission_path(@funding_application_submission) %> |
-  <%= link_to 'Back', funding_application_submissions_path %>
+  <%= link_to "Approve for Interview", root_path, class:"button medium blue-background"%>
+  <%= link_to "Reject Application", root_path, class:"button medium red-background"%>
+  <%= link_to "Edit Application", edit_funding_application_submission_path(@funding_application_submission), class:"button medium grey-background"%>
 
 </div>
