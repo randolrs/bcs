@@ -13,14 +13,14 @@
       </div>
     <% end %>
 
-    <%= @funding_application.name %>
+    <%= f.hidden_field(:funding_application_id, :value => @funding_application.id) %>
+
     <% @funding_application.funding_application_questions.each do |question| %>
-      <div class="field">
-        <label><%= question.question_text %></label><br/>
-        <input type="<%= question.answer_format %>"></input>
 
-      </div>
 
+      <%= f.fields_for :funding_application_submission_answers, FundingApplicationSubmissionAnswer.new do |builder| %>
+        <%= render 'funding_application_submission_answer_fields', f: builder, question: question %>
+      <% end %>
 
     <% end %>
 

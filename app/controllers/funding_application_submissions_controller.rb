@@ -41,6 +41,7 @@ class FundingApplicationSubmissionsController < ApplicationController
 
   # GET /funding_application_submissions/1/edit
   def edit
+    @funding_application = @funding_application_submission.funding_application
   end
 
   # POST /funding_application_submissions
@@ -50,6 +51,7 @@ class FundingApplicationSubmissionsController < ApplicationController
 
     respond_to do |format|
       if @funding_application_submission.save
+        @funding_application_submission.update(:user_id => current_user.id)
         format.html { redirect_to @funding_application_submission, notice: 'Funding application submission was successfully created.' }
         format.json { render :show, status: :created, location: @funding_application_submission }
       else
@@ -91,6 +93,6 @@ class FundingApplicationSubmissionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def funding_application_submission_params
-      params.fetch(:funding_application_submission, {})
+      params.fetch(:funding_application_submission, {}).permit(:funding_application_id, :funding_application_submission_answers_attributes => [:id, :funding_application_submission_id, :funding_application_question_id, :answer_text, :answer_number, :answer_boolean])
     end
 end

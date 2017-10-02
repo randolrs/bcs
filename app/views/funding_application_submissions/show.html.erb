@@ -1,4 +1,33 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_funding_application_submission_path(@funding_application_submission) %> |
-<%= link_to 'Back', funding_application_submissions_path %>
+<div class="content with-gutter">
+
+  <div class="content__section__header">
+    <h1><%= @funding_application_submission.funding_application.name %> Application</h1>
+  </div>
+
+  <div class="form-container">
+
+    <div class="field">
+      <label>User Email:</label><br/>
+      <p><%= @funding_application_submission.user.email %></p>
+
+    </div>
+
+    <% @funding_application_submission.funding_application_submission_answers.each do |answer| %>
+
+      <div class="field">
+
+        <label><%= answer.funding_application_question.question_text %></label><br/>
+        <p><%= answer.id %></p>
+
+      </div>
+
+    <% end %>
+
+  </div>
+
+  <%= link_to 'Edit', edit_funding_application_submission_path(@funding_application_submission) %> |
+  <%= link_to 'Back', funding_application_submissions_path %>
+
+</div>

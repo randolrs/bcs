@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  funding_application_question_id: 1
+  answer_text: MyText
+  answer_number: 9.99
+  answer_boolean: false
+
+two:
+  funding_application_question_id: 1
+  answer_text: MyText
+  answer_number: 9.99
+  answer_boolean: false

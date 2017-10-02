@@ -1,0 +1,15 @@
+
+<div class="field">
+  <label><%= question.question_text %></label><br/>
+
+  <% if question.answer_format == "text" %>
+    <%= f.text_field :answer_text %>
+  <% elsif question.answer_format == "number" %>
+    <%= f.number_field :answer_number %>
+  <% elsif question.answer_format == "boolean" %>
+    Boolean
+  <% end %>
+
+  <%= f.hidden_field(:funding_application_question_id, :value => question.id) %>
+
+</div>
