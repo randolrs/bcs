@@ -16,5 +16,16 @@ class FundingApplicationSubmission < ApplicationRecord
     self.update(:rejected_for_interview => true)
 
   end
+  
+  def status_pending
+
+    if (self.approved_for_interview or self.rejected_for_interview)
+      return true
+    else
+      return false
+    end
+
+  end
+
 
 end

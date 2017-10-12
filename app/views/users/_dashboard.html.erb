@@ -2,4 +2,10 @@
 
   <p>Hey You're logged in</p>
 
+  <% current_user.votable_funding_application_submissions.each do |submission| %>
+
+    <%= submission.id %>
+
+  <% end %>
+
 </div>

@@ -22,7 +22,7 @@
         <tr>
           <td><%= funding_application_submission.funding_application.name %></td>
           <td><%= funding_application_submission.user.email %></td>
-          <td><%= funding_application_submission.created_at.strftime("%m/%e/%Y") %></td>
+          <td><%= funding_application_submission.created_at.strftime("%m/%-d/%Y") %></td>
           <td>
             <% if funding_application_submission.approved_for_interview == true %>
               <span style="color: green;">Approved</span>

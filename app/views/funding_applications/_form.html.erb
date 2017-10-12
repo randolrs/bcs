@@ -29,6 +29,11 @@
       <%= f.text_field :additional_information %>
     </div>
 
+    <div class="field">
+      <label>Syndicate</label><br>
+      <%= f.collection_select :syndicate_id, Syndicate.all, :id, :name, prompt: true %>
+    </div>
+
     <div class="actions">
       <%= f.submit %>
     </div>

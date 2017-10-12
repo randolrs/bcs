@@ -81,4 +81,12 @@ class User < ApplicationRecord
   end
 
 
+  def votable_funding_application_submissions
+
+    return FundingApplicationSubmission.all.where(:approved_for_interview => nil, :rejected_for_interview => nil)
+    #return FundingApplicationSubmission.where(:status_pending => true)
+
+  end
+
+
 end

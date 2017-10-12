@@ -10,7 +10,12 @@
       <label>Name: </label><br/>
       <p><%= @funding_application.name %></p>
     </div>
-
+    <% if @funding_application.syndicate %>
+      <div class="field">
+        <label>Syndicate: </label><br/>
+        <p><%= @funding_application.syndicate.name %></p>
+      </div>
+    <% end %>
     <% @funding_application.funding_application_questions.each do |question| %>
 
       <div class="field">
