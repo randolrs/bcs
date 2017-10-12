@@ -1,0 +1,32 @@
+<div class="content with-gutter">
+
+  <h1>Syndicates</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @syndicates.each do |syndicate| %>
+        <tr>
+          <td><%= syndicate.name %></td>
+          <td><%= syndicate.description %></td>
+          <td><%= link_to 'Join Syndicate', user_join_syndicate_path(syndicate.id) %></td>
+          <td><%= link_to 'Show', syndicate %></td>
+          <td><%= link_to 'Edit', edit_syndicate_path(syndicate) %></td>
+          <td><%= link_to 'Destroy', syndicate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Syndicate', new_syndicate_path %>
+
+</div>

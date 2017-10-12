@@ -1,7 +1,5 @@
 <div class="content with-gutter">
 
-  <p id="notice"><%= notice %></p>
-
   <h1>Funding Applications</h1>
 
   <table class="white-table">
@@ -10,7 +8,7 @@
         <th>Application Name</th>
         <th># of Questions</th>
         <th>Date Created</th>
-        <th colspan="4"></th>
+        <th colspan="5"></th>
       </tr>
     </thead>
 
@@ -22,6 +20,7 @@
           <td><%= funding_application.created_at.strftime("%m/%e/%Y") %></td>
           <td><%= link_to "Apply", initiate_funding_application_submission_path(funding_application.id) %></td>
           <td><%= link_to 'Show', funding_application %></td>
+          <td><%= link_to 'Edit Questions', edit_funding_application_questions_path(funding_application.id) %>
           <td><%= link_to 'Edit', edit_funding_application_path(funding_application) %></td>
           <td><%= link_to 'Destroy', funding_application, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>

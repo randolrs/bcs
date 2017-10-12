@@ -66,6 +66,19 @@ class User < ApplicationRecord
 
 #END USER STRIPE METHODS
 
+  def join_syndicate(syndicate_id)
+
+    if Syndicate.where(:id => syndicate_id).exists?
+      unless SyndicateUser.where(:user_id => self.id, :syndicate_id => syndicate_id)
+        SyndicateUser.create(:syndicate_id => syndicate_id, :user_id => self.id)
+        return
+      else
+
+        return
+      end
+    end
+
+  end
 
 
 end

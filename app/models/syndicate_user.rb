@@ -1,0 +1,2 @@
+class SyndicateUser < ApplicationRecord
+end

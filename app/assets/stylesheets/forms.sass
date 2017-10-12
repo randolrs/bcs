@@ -1,6 +1,10 @@
 $input-focus-border-color: blue
 
 .form-container
+  &__section-header
+    border-bottom: 2px solid #ccc
+    padding: 15px 0px
+    margin-bottom: 30px
   .field
     margin-bottom: 40px
     display: block
@@ -32,6 +36,22 @@ $input-focus-border-color: blue
       font-weight: 600
       width: 500px
       max-width: 100%
+
+.add_fields
+  border-radius: 3px
+  border: 1px solid rgba(0,0,0,0.1)
+  box-shadow: inset 0px 0px 1px rgba(0,0,0,0.1), 0px 1px 4px rgba(0,0,0,0.2)
+  padding: 10px
+  display: inline-block
+  text-align: center
+  cursor: pointer
+  text-decoration: none
+  background: inherit
+  margin: 5px 5px 5px 0px
+  background: yellow
+  font-weight: 600
+  &:hover, &:focus
+    text-decoration: none
 
 .form-table
   tr

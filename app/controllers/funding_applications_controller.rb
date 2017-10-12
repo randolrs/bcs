@@ -21,6 +21,11 @@ class FundingApplicationsController < ApplicationController
   def edit
   end
 
+  # GET /funding_applications/questions/1/edit
+  def edit_questions
+    @funding_application = FundingApplication.find(params[:funding_application_id])
+  end
+
   # POST /funding_applications
   # POST /funding_applications.json
   def create
@@ -28,7 +33,7 @@ class FundingApplicationsController < ApplicationController
 
     respond_to do |format|
       if @funding_application.save
-        format.html { redirect_to @funding_application, notice: 'Funding application was successfully created.' }
+        format.html { redirect_to edit_funding_application_questions_path(@funding_application.id), notice: 'Funding application was successfully created.' }
         format.json { render :show, status: :created, location: @funding_application }
       else
         format.html { render :new }

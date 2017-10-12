@@ -15,19 +15,27 @@
     <% end %>
 
     <div class="field">
-      <%= f.label :name %><br>
-      <%= f.text_field :name %>
+      <%= f.label :name %>:
+      <span><%= funding_application.name %></span>
     </div>
 
     <div class="field">
-      <%= f.label :headline %><br>
-      <%= f.text_field :headline %>
+      <%= f.label :headline %>:
+      <span><%= funding_application.headline %></span>
     </div>
 
     <div class="field">
-      <%= f.label :additional_information %><br>
-      <%= f.text_field :additional_information %>
+      <%= f.label :additional_information %>
+      <p><%= funding_application.additional_information %></p>
     </div>
+
+    <h3 class="form-container__section-header">Questions</h3>
+
+    <%= f.fields_for :funding_application_questions do |builder| %>
+      <%= render 'funding_application_question_fields', f: builder %>
+    <% end %>
+
+    <%= link_to_add_fields "Add Question", f, :funding_application_questions %>
 
     <div class="actions">
       <%= f.submit %>
