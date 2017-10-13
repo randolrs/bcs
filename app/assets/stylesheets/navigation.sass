@@ -1,10 +1,13 @@
 
-$navigation-background: #fff
+$navigation-background: #1A237E
 $navigation-box-shadow: 0px 1px 3px rgba(0,0,0,0.1)
 $navigation-border-bottom: 1px solid rgba(0,0,0,0.2)
 $navigation-height: 60px
-$navigation-link-color: #666
+$navigation-link-color: rgba(255,255,255,0.9)
 $navigation-link-padding: 10px
+
+$secondary-navigation-background: #fff
+$secondary-navigation-box-shadow: 0 2px 10px rgba(0,0,0,.2)
 
 .navigation
   background: $navigation-background
@@ -23,12 +26,28 @@ $navigation-link-padding: 10px
   &__link
     display: inline-block
     line-height: ($navigation-height - $navigation-link-padding * 2)
-    font-size: 16px
+    font-size: 14px
     padding: $navigation-link-padding
     text-decoration: none
     color: $navigation-link-color
+    font-weight: 600
+    letter-spacing: 0.5px
     &:hover
       text-decoration: none
+      color: inherit
+
+.secondary-navigation
+  background: $secondary-navigation-background
+  position: fixed
+  top: $navigation-height
+  left: 0px
+  right: 0px
+  height: $navigation-height
+  box-shadow: $secondary-navigation-box-shadow
+  border-bottom: $navigation-border-bottom
+  &__content
+    margin: 0 auto
+    max-width: 1200px
 
 .content-container
-  margin-top: $navigation-height
+  margin-top: ($navigation-height*2)
