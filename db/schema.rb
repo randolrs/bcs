@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171012171042) do
+ActiveRecord::Schema.define(version: 20171013020212) do
 
   create_table "funding_application_questions", force: :cascade do |t|
     t.string   "question_text"
@@ -79,6 +79,15 @@ ActiveRecord::Schema.define(version: 20171012171042) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "user_funding_application_submission_votes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "funding_application_submission_id"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.boolean  "is_positive"
+    t.boolean  "is_negative"
   end
 
   create_table "users", force: :cascade do |t|

@@ -12,6 +12,7 @@ class User < ApplicationRecord
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
   has_many :funding_application_submissions
+  has_many :user_funding_application_submission_votes
 
 
 #USER STRIPE METHODS
@@ -76,6 +77,32 @@ class User < ApplicationRecord
 
         return
       end
+    end
+
+  end
+
+  def upvote_funding_application_submission(funding_application_submission_id)
+
+    unless UserFundingApplicationSubmissionVote.where(:user_id => self.id, :funding_application_submission_id => funding_application_submission_id).exists?
+
+      UserFundingApplicationSubmissionVote.create(:user_id => self.id, :funding_application_submission_id => funding_application_submission_id, :is_positive => true)
+      return
+
+    else
+      return
+    end
+
+  end
+
+  def downvote_funding_application_submission(funding_application_submission_id)
+
+    unless UserFundingApplicationSubmissionVote.where(:user_id => self.id, :funding_application_submission_id => funding_application_submission_id).exists?
+
+      UserFundingApplicationSubmissionVote.create(:user_id => self.id, :funding_application_submission_id => funding_application_submission_id, :is_negative => true)
+      return
+
+    else
+      return
     end
 
   end

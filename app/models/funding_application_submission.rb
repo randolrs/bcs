@@ -3,6 +3,8 @@ class FundingApplicationSubmission < ApplicationRecord
   belongs_to :user, required: false
 
   has_many :funding_application_submission_answers
+  has_many :user_funding_application_submission_votes
+  
   accepts_nested_attributes_for :funding_application_submission_answers, allow_destroy: true
 
   def approve_for_interview
@@ -16,7 +18,7 @@ class FundingApplicationSubmission < ApplicationRecord
     self.update(:rejected_for_interview => true)
 
   end
-  
+
   def status_pending
 
     if (self.approved_for_interview or self.rejected_for_interview)

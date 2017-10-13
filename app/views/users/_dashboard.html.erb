@@ -4,7 +4,8 @@
 
   <% current_user.votable_funding_application_submissions.each do |submission| %>
 
-    <%= submission.id %>
+    <%= link_to "Upvote", user_upvote_submission_path(submission.id) %>
+    <%= link_to "Downvote", user_downvote_submission_path(submission.id) %>
 
   <% end %>
 

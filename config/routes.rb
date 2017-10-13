@@ -32,9 +32,11 @@ Rails.application.routes.draw do
 
   get '/admin/dashboard/', to: 'admin#dashboard', as: 'admin_dashboard'
 
-  post 'join_syndicate' => "users#join_syndicate"
-
   get 'users/join_syndicate/:syndicate_id', to: 'users#join_syndicate', as: 'user_join_syndicate'
+
+  get 'users/upvote/:funding_application_submission_id', to: 'users#upvote_submission', as: 'user_upvote_submission'
+
+  get 'users/downvote/:funding_application_submission_id', to: 'users#downvote_submission', as: 'user_downvote_submission'
 
   post 'complete_checkout' => "memberships#complete_checkout"
 
