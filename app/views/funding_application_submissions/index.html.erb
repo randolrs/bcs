@@ -12,7 +12,8 @@
         <th>Application Name</th>
         <th>Applicant Email</th>
         <th>Date of Submission</th>
-        <th>Approval Status</th>
+        <th>Interview</th>
+        <th>Voting</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -27,6 +28,17 @@
             <% if funding_application_submission.approved_for_interview == true %>
               <span style="color: green;">Approved</span>
             <% elsif funding_application_submission.rejected_for_interview == true %>
+               <span style="color: red;">Rejected</span>
+            <% else %>
+              <span style="color: yellow;">Pending</span>
+            <% end %>
+          </td>
+          <td>
+            <% if funding_application_submission.approve_for_voting == true %>
+              <%= link_to edit_votable_project_path(funding_application_submission.votable_project) do %>
+                <span style="color: green;">Approved</span>
+              <% end %>
+            <% elsif funding_application_submission.reject_for_voting == true %>
                <span style="color: red;">Rejected</span>
             <% else %>
               <span style="color: yellow;">Pending</span>

@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 
 <div class="content with-gutter">
 
@@ -37,8 +36,16 @@
 
   </div>
 
-  <%= link_to "Approve for Interview", approve_for_interview_and_return_path(@funding_application_submission.id), class:"button medium blue-background"%>
-  <%= link_to "Reject Application", reject_for_interview_and_return_path(@funding_application_submission.id), class:"button medium red-background"%>
-  <%= link_to "Edit Application", edit_funding_application_submission_path(@funding_application_submission), class:"button medium grey-background"%>
+  <div>
+    <%= link_to "Approve for Interview", approve_for_interview_and_return_path(@funding_application_submission.id), class:"button medium blue-background"%>
+    <%= link_to "Reject Application", reject_for_interview_and_return_path(@funding_application_submission.id), class:"button medium red-background"%>
+  </div>
+
+  <div>
+    <%= link_to "Approve for Voting", approve_for_voting_path(@funding_application_submission.id), class:"button medium blue-background"%>
+    <%= link_to "Reject for Voting", reject_for_voting_path(@funding_application_submission.id), class:"button medium red-background"%>
+  </div>
+
+  <%= link_to "Edit Application Submission", edit_funding_application_submission_path(@funding_application_submission), class:"button medium grey-background"%>
 
 </div>

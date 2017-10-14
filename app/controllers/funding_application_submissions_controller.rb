@@ -33,7 +33,7 @@ class FundingApplicationSubmissionsController < ApplicationController
     else
 
       redirect_to root_path
-      
+
     end
 
 
@@ -45,6 +45,37 @@ class FundingApplicationSubmissionsController < ApplicationController
 
       funding_app = FundingApplicationSubmission.find(params[:funding_application_submission_id])
       funding_app.reject_for_interview
+      redirect_to funding_application_submissions_path
+
+    else
+
+      redirect_to root_path
+    end
+
+  end
+
+  def approve_for_voting
+
+    if params[:funding_application_submission_id]
+
+      funding_app = FundingApplicationSubmission.find(params[:funding_application_submission_id])
+      funding_app.approve_voting
+      redirect_to funding_application_submissions_path
+    else
+
+      redirect_to root_path
+
+    end
+
+
+  end
+
+  def reject_for_voting
+
+    if params[:funding_application_submission_id]
+
+      funding_app = FundingApplicationSubmission.find(params[:funding_application_submission_id])
+      funding_app.reject_voting
       redirect_to funding_application_submissions_path
 
     else

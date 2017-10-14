@@ -1,0 +1,37 @@
+<%= form_for(votable_project) do |f| %>
+  <% if votable_project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(votable_project.errors.count, "error") %> prohibited this votable_project from being saved:</h2>
+
+      <ul>
+      <% votable_project.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :headline %>
+    <%= f.text_field :headline %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sub_headline %>
+    <%= f.text_field :sub_headline %>
+  </div>
+
+  <div class="field">
+    <%= f.label :reason_selected %>
+    <%= f.text_area :reason_selected %>
+  </div>
+
+  <div class="field">
+    <%= f.label :additional_information %>
+    <%= f.text_area :additional_information %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171013020212) do
+ActiveRecord::Schema.define(version: 20171013233846) do
 
   create_table "funding_application_questions", force: :cascade do |t|
     t.string   "question_text"
@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 20171013020212) do
     t.datetime "updated_at",             null: false
     t.boolean  "approved_for_interview"
     t.boolean  "rejected_for_interview"
+    t.boolean  "approve_for_voting"
+    t.boolean  "reject_for_voting"
   end
 
   create_table "funding_applications", force: :cascade do |t|
@@ -88,6 +90,7 @@ ActiveRecord::Schema.define(version: 20171013020212) do
     t.datetime "updated_at",                        null: false
     t.boolean  "is_positive"
     t.boolean  "is_negative"
+    t.integer  "votable_project_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -114,6 +117,18 @@ ActiveRecord::Schema.define(version: 20171013020212) do
     t.boolean  "is_admin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "votable_projects", force: :cascade do |t|
+    t.string   "headline"
+    t.string   "sub_headline"
+    t.text     "reason_selected"
+    t.text     "additional_information"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.integer  "funding_application_submission_id"
+    t.datetime "start_time"
+    t.datetime "end_time"
   end
 
 end

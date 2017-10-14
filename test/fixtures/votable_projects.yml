@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  headline: MyString
+  sub_headline: MyString
+  reason_selected: MyText
+  additional_information: MyText
+
+two:
+  headline: MyString
+  sub_headline: MyString
+  reason_selected: MyText
+  additional_information: MyText

@@ -1,11 +1,8 @@
 <div class="content with-gutter">
 
-  <p>Hey You're logged in</p>
-
   <% current_user.votable_funding_application_submissions.each do |submission| %>
 
-    <%= link_to "Upvote", user_upvote_submission_path(submission.id) %>
-    <%= link_to "Downvote", user_downvote_submission_path(submission.id) %>
+    <%= render 'funding_application_submissions/list_item', submission: submission  %>
 
   <% end %>
 

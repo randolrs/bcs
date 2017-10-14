@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Votable Projects</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Headline</th>
+      <th>Sub headline</th>
+      <th>Reason selected</th>
+      <th>Additional information</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @votable_projects.each do |votable_project| %>
+      <tr>
+        <td><%= votable_project.headline %></td>
+        <td><%= votable_project.sub_headline %></td>
+        <td><%= votable_project.reason_selected %></td>
+        <td><%= votable_project.additional_information %></td>
+        <td><%= link_to 'Show', votable_project %></td>
+        <td><%= link_to 'Edit', edit_votable_project_path(votable_project) %></td>
+        <td><%= link_to 'Destroy', votable_project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Votable Project', new_votable_project_path %>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :votable_projects
   resources :syndicates
   resources :funding_applications
   resources :funding_application_submissions
@@ -29,6 +30,10 @@ Rails.application.routes.draw do
 
   get 'funding_application_submission/update/accept_for_interview/:funding_application_submission_id', to: 'funding_application_submissions#approve_for_interview_and_return', as: 'approve_for_interview_and_return'
   get 'funding_application_submission/update/reject_for_interview/:funding_application_submission_id', to: 'funding_application_submissions#reject_for_interview_and_return', as: 'reject_for_interview_and_return'
+
+  get 'funding_application_submission/update/accept_for_voting/:funding_application_submission_id', to: 'funding_application_submissions#approve_for_voting', as: 'approve_for_voting'
+  get 'funding_application_submission/update/reject_for_voting/:funding_application_submission_id', to: 'funding_application_submissions#reject_for_voting', as: 'reject_for_voting'
+
 
   get '/admin/dashboard/', to: 'admin#dashboard', as: 'admin_dashboard'
 

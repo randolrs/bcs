@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Headline:</strong>
+  <%= @votable_project.headline %>
+</p>
+
+<p>
+  <strong>Sub headline:</strong>
+  <%= @votable_project.sub_headline %>
+</p>
+
+<p>
+  <strong>Reason selected:</strong>
+  <%= @votable_project.reason_selected %>
+</p>
+
+<p>
+  <strong>Additional information:</strong>
+  <%= @votable_project.additional_information %>
+</p>
+
+<%= link_to 'Edit', edit_votable_project_path(@votable_project) %> |
+<%= link_to 'Back', votable_projects_path %>

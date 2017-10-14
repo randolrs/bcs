@@ -1,0 +1,7 @@
+<div class="card">
+  <div class="card__body">
+    <h2><%= submission.id %></h2>
+    <%= link_to "Upvote", user_upvote_submission_path(submission.id) %>
+    <%= link_to "Downvote", user_downvote_submission_path(submission.id) %>
+  </div>
+</div>
