@@ -81,11 +81,11 @@ class User < ApplicationRecord
 
   end
 
-  def upvote_funding_application_submission(funding_application_submission_id)
+  def upvote_funding_application_submission(votable_project_id)
 
-    unless UserFundingApplicationSubmissionVote.where(:user_id => self.id, :funding_application_submission_id => funding_application_submission_id).exists?
+    unless UserFundingApplicationSubmissionVote.where(:user_id => self.id, :funding_application_submission_id => votable_project_id).exists?
 
-      UserFundingApplicationSubmissionVote.create(:user_id => self.id, :funding_application_submission_id => funding_application_submission_id, :is_positive => true)
+      UserFundingApplicationSubmissionVote.create(:user_id => self.id, :funding_application_submission_id => votable_project_id, :is_positive => true)
       return
 
     else
@@ -94,11 +94,11 @@ class User < ApplicationRecord
 
   end
 
-  def downvote_funding_application_submission(funding_application_submission_id)
+  def downvote_funding_application_submission(votable_project_id)
 
-    unless UserFundingApplicationSubmissionVote.where(:user_id => self.id, :funding_application_submission_id => funding_application_submission_id).exists?
+    unless UserFundingApplicationSubmissionVote.where(:user_id => self.id, :votable_project_id => votable_project_id).exists?
 
-      UserFundingApplicationSubmissionVote.create(:user_id => self.id, :funding_application_submission_id => funding_application_submission_id, :is_negative => true)
+      UserFundingApplicationSubmissionVote.create(:user_id => self.id, :votable_project_id => votable_project_id, :is_negative => true)
       return
 
     else
@@ -112,6 +112,13 @@ class User < ApplicationRecord
 
     return FundingApplicationSubmission.all.where(:approved_for_interview => nil, :rejected_for_interview => nil)
     #return FundingApplicationSubmission.where(:status_pending => true)
+
+  end
+
+  def votable_projects_for_me
+
+    projects_in_time_range = VotableProject.where("start_time < ? < end_time", Time.now)
+    return projects_in_time_range
 
   end
 

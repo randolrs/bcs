@@ -1,0 +1,20 @@
+<div class="card project">
+  <div class="card__photo">
+  </div>
+  <div class="card__body">
+    <div class="card__body__photo">
+      <div class="card__body__photo__placeholder"></div>
+    </div>
+    <div class="card__body__content">
+      <h2 class="card__body__headline"><%= project.headline %></h2>
+      <h3 class="card__body__sub-headline"><%= project.sub_headline %></h3>
+      <p><span>Submitted by</span> <span>RREEDD</span></p>
+      <p><span>Raising </span><%= number_to_currency(project.raise_amount) %></p>
+      <span class="card__upper-right">XXXYYGVGG</span>
+      <div>
+        <a class="upvote" href="<%= user_upvote_submission_path(project.id) %>"><span class="glyphicon glyphicon-arrow-up"></span><span>Upvote</span></a>
+        <a class="downvote" href="<%= user_downvote_submission_path(project.id) %>"><span class="glyphicon glyphicon-arrow-down"></span><span>Downvote</span></a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -69,6 +69,6 @@ class VotableProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def votable_project_params
-      params.require(:votable_project).permit(:headline, :sub_headline, :reason_selected, :additional_information)
+      params.require(:votable_project).permit(:headline, :sub_headline, :reason_selected, :additional_information, :published, :start_time, :end_time, :raise_amount)
     end
 end

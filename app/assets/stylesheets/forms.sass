@@ -1,4 +1,4 @@
-$input-focus-border-color: blue
+$input-focus-border-color: #666
 
 .form-container
   &__section-header
@@ -12,12 +12,18 @@ $input-focus-border-color: blue
       margin-bottom: 10px
       font-size: 16px
     input
-      padding: 10px
-      border-radius: 5px
-      border: 1px solid rgba(0,0,0,0.2)
-      width: 500px
-      max-width: 100%
       line-height: 20px
+    textarea
+      height: 200px
+      resize: none
+    input, textarea
+      max-width: 100%
+      border-radius: 2px
+      width: 500px
+      resize: none
+      padding: 10px
+      line-height: 20px
+      border: 1px solid rgba(0,0,0,0.2)
       &:focus
         outline: none
         border: 1px solid $input-focus-border-color

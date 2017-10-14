@@ -1,8 +1,8 @@
 <div class="content with-gutter">
 
-  <% current_user.votable_funding_application_submissions.each do |submission| %>
+  <% current_user.votable_projects_for_me.each do |project| %>
 
-    <%= render 'funding_application_submissions/list_item', submission: submission  %>
+    <%= render 'votable_projects/list_item', project: project  %>
 
   <% end %>
 
