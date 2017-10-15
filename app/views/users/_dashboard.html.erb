@@ -1,9 +1,33 @@
 <div class="content with-gutter">
 
-  <% current_user.votable_projects_for_me.each do |project| %>
+  <div class="row">
 
-    <%= render 'votable_projects/list_item', project: project  %>
+    <div class="col-xs-12 col-sm-4">
+      <div class="dashboard-card centered">
+        <h2>Rate Pitches</h2>
+        <p>Tell us what you think about the latest pitches. ... Help us decide which projects our members will vote on for funding.</p>
+        <%= link_to "See All New Submissions", votable_project_index_path, class: "cta" %>
+      </div>
+    </div>
 
-  <% end %>
+    <div class="col-xs-12 col-sm-4">
+      <div class="dashboard-card centered">
+        <h2>Vote on Projects</h2>
+        <p>Help us decide which projects should receive funding.</p>
+        <%= link_to "See All New Submissions", votable_project_index_path, class: "cta" %>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-4">
+      <div class="dashboard-card centered">
+        <h2>Track Progress</h2>
+        <p>Review progress of projects we funded previously.</p>
+        <%= link_to "See All New Submissions", votable_project_index_path, class: "cta" %>
+      </div>
+    </div>
+
+  </div>
+
+  <br><br><br>
 
 </div>

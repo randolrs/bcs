@@ -17,9 +17,21 @@ $max-card-width: 400px
   &__section
     padding: $content-section-padding
     &__header
-      border-bottom: $content-section-header-border-bottom
       padding: 10px 0px
-      margin-bottom: 40px
+      margin-bottom: 20px
+      position: relative
+      h2
+        display: inline-block
+        line-height: 40px
+      &__filter-list
+        position: absolute
+        right: 0px
+        top: 10px
+        a
+          line-height: 20px
+          display: inline-block
+          padding: 10px
+
       &__lite
         color: #666
       &__text
@@ -101,3 +113,23 @@ $max-card-width: 400px
 
 .downvote
   background: red
+
+.dashboard-card
+  padding: 20px
+  border: 1px solid rgba(0,0,0,0.1)
+  background: #fff
+  margin-bottom: 15px
+  border-radius: 2px
+  h2
+    font-size: 20px
+    margin-bottom: 15px
+  p
+    color: #444
+    margin-bottom: 15px
+  .cta
+    border: 1px solid rgba(0,0,0,0.2)
+    padding: 10px
+    width: 100%
+    display: inline-block
+    text-align: center
+    border-radius: 30px

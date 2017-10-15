@@ -1,24 +1,50 @@
-<p id="notice"><%= notice %></p>
+<div class="content with-gutter">
 
-<p>
-  <strong>Headline:</strong>
-  <%= @votable_project.headline %>
-</p>
+  <div class="content__section__header">
+    <h1>Votable Project Details</h1>
+  </div>
 
-<p>
-  <strong>Sub headline:</strong>
-  <%= @votable_project.sub_headline %>
-</p>
+  <div class="form-container">
 
-<p>
-  <strong>Reason selected:</strong>
-  <%= @votable_project.reason_selected %>
-</p>
+    <div class="field">
+      <label>Headline:</label><br/>
+      <p><%= @votable_project.headline %></p>
+    </div>
 
-<p>
-  <strong>Additional information:</strong>
-  <%= @votable_project.additional_information %>
-</p>
+    <div class="field">
+      <label>Sub headline:</label><br/>
+      <p><%= @votable_project.sub_headline %></p>
+    </div>
 
-<%= link_to 'Edit', edit_votable_project_path(@votable_project) %> |
-<%= link_to 'Back', votable_projects_path %>
+    <div class="field">
+      <label>Reason selected:</label><br/>
+      <p><%= @votable_project.reason_selected %></p>
+    </div>
+
+    <div class="field">
+      <label>Additional information:</label><br/>
+      <p><%= @votable_project.additional_information %></p>
+    </div>
+
+    <div class="field">
+      <label>Published:</label><br/>
+      <p><%= @votable_project.published %></p>
+    </div>
+
+    <div class="field">
+      <label>Voting Start Time:</label><br/>
+      <p><%= @votable_project.start_time.strftime("%A, %b %d") %></p>
+    </div>
+
+    <div class="field">
+      <label>Voting End Time:</label><br/>
+      <p><%= @votable_project.end_time.strftime("%A, %b %d")  %></p>
+    </div>
+
+    <div class="field">
+      <label>Raise Amount:</label><br/>
+      <p><%= number_to_currency(@votable_project.raise_amount) %></p>
+    </div>
+
+  </div>
+</div>

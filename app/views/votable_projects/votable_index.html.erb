@@ -1,0 +1,17 @@
+<div class="content with-gutter">
+
+  <div class="content__section__header">
+    <h2>Pitches</h2>
+    <div class="content__section__header__filter-list">
+      <a>Newest</a>
+      <a>Most Commented</a>
+    </div>
+  </div>
+
+  <% current_user.votable_projects_for_me.each do |project| %>
+
+    <%= render 'votable_projects/list_item', project: project  %>
+
+  <% end %>
+
+</div>

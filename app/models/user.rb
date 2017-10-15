@@ -82,10 +82,8 @@ class User < ApplicationRecord
   end
 
   def upvote_funding_application_submission(votable_project_id)
-
-    unless UserFundingApplicationSubmissionVote.where(:user_id => self.id, :funding_application_submission_id => votable_project_id).exists?
-
-      UserFundingApplicationSubmissionVote.create(:user_id => self.id, :funding_application_submission_id => votable_project_id, :is_positive => true)
+    unless UserFundingApplicationSubmissionVote.where(:user_id => self.id, :votable_project_id => votable_project_id).exists?
+      UserFundingApplicationSubmissionVote.create(:user_id => self.id, :votable_project_id => votable_project_id, :is_positive => true)
       return
 
     else
@@ -95,9 +93,7 @@ class User < ApplicationRecord
   end
 
   def downvote_funding_application_submission(votable_project_id)
-
     unless UserFundingApplicationSubmissionVote.where(:user_id => self.id, :votable_project_id => votable_project_id).exists?
-
       UserFundingApplicationSubmissionVote.create(:user_id => self.id, :votable_project_id => votable_project_id, :is_negative => true)
       return
 
@@ -117,7 +113,8 @@ class User < ApplicationRecord
 
   def votable_projects_for_me
 
-    projects_in_time_range = VotableProject.where("start_time < ? < end_time", Time.now)
+    projects_in_time_range = VotableProject.where("end_time > ? AND start_time < ? AND published == ? ", Time.now, Time.now, true)
+
     return projects_in_time_range
 
   end

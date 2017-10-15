@@ -37,6 +37,8 @@ Rails.application.routes.draw do
 
   get '/admin/dashboard/', to: 'admin#dashboard', as: 'admin_dashboard'
 
+  get '/vote/', to: 'votable_projects#votable_index', as: 'votable_project_index'
+
   get 'users/join_syndicate/:syndicate_id', to: 'users#join_syndicate', as: 'user_join_syndicate'
 
   get 'users/upvote/:funding_application_submission_id', to: 'users#upvote_submission', as: 'user_upvote_submission'

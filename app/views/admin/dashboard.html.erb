@@ -1,7 +1,29 @@
 <div class="content with-gutter">
 
-  <%= link_to 'Funding Applications', funding_applications_path %><br>
-  <%= link_to 'Application Submissions', funding_application_submissions_path %><br>
-  <%= link_to "Syndicate Dashboard", syndicates_path %>
+  <div class="row">
+
+    <div class="col-xs-12 col-md-3">
+      <div class="dashboard-card">
+        <%= link_to 'Funding Applications', funding_applications_path %>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-md-3">
+      <div class="dashboard-card">
+        <%= link_to 'Application Submissions', funding_application_submissions_path %>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-md-3">
+      <div class="dashboard-card">
+        <%= link_to "Votable Projects", votable_projects_path %>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-md-3">
+      <div class="dashboard-card">
+        <%= link_to "Syndicate Dashboard", syndicates_path %>
+      </div>
+    </div>
 
 </div>
